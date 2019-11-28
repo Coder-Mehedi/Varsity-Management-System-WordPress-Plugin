@@ -5,6 +5,13 @@
 			<label for="name">Name</label>
 			<input type="text" name="name" id="name">
 			<br>
+			<label for="Gender">Gender</label>
+			<select name="gender">
+				<option value="" disabled selected>Select</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+			<br>
 			<label for="Mobile Number">Mobile Number</label>
 			<input type="text" name="mobile_number">
 			<br>
@@ -33,6 +40,7 @@ $main = new Varsity_management_system_main();
 if(isset($_POST['submit'])) {
 	$student_id = rand();
 	$name = $_POST['name'];
+	$gender = $_POST['gender'];
 	$mobile_number = $_POST['mobile_number'];
 	$address = $_POST['address'];
 	$father_name = $_POST['father_name'];
@@ -40,8 +48,9 @@ if(isset($_POST['submit'])) {
 	$date_of_birth = $_POST['dob'];
 	$SESSION['dob'] = $_POST['dob'];
 
-	$main->add_student($student_id, $name, $mobile_number, $address, $father_name, $father_mobile_number);
+	$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
 	// echo $SESSION['dob'];
 }
+echo $SESSION['dob'];
 
 ?>

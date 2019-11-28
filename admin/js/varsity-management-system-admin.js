@@ -30,11 +30,18 @@
 	 */
 
 	 $(document).ready(function(){
-	    $('.datepicker').datepicker();
+	    $('.datepicker').datepicker({
+	    	yearRange: 70,
+	    	format: 'yyyy-mm-dd'
+	    });
 	  });
 
 	 $('#textarea1').val('New Text');
 	 M.textareaAutoResize($('#textarea1'));
+
+	  $(document).ready(function(){
+	    $('select').formSelect();
+	  });
 
 })( jQuery );
 

@@ -110,7 +110,7 @@ class Varsity_Management_System_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/varsity-management-system-admin.js', array( 'jquery' ), $this->version, false );
+			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/varsity-management-system-admin.js', array( 'jquery','materialize' ), $this->version, false );
 
 			// wp_enqueue_script( 'bootstrap', plugin_dir_url( __FILE__ ) . 'lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
 
