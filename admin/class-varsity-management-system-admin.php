@@ -72,20 +72,22 @@ class Varsity_Management_System_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		if($screen == 'toplevel_page_varsity-management'){
+		if($screen == 'varsity-management_page_students'){
 			
 
 			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/varsity-management-system-admin.css', array(), $this->version, 'all' );
 
-			wp_enqueue_style( 'table-responsive', plugin_dir_url( __FILE__ ) . 'css/table-responsive.css', array(), $this->version, 'all' );
+			// wp_enqueue_style( 'table-responsive', plugin_dir_url( __FILE__ ) . 'css/table-responsive.css', array(), $this->version, 'all' );
 
-			wp_enqueue_style( 'to-do', plugin_dir_url( __FILE__ ) . 'css/to-do.css', array(), $this->version, 'all' );
+			// wp_enqueue_style( 'to-do', plugin_dir_url( __FILE__ ) . 'css/to-do.css', array(), $this->version, 'all' );
 
-			wp_enqueue_style( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'css/zabuto_calendar.css', array(), $this->version, 'all' );
+			// wp_enqueue_style( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'css/zabuto_calendar.css', array(), $this->version, 'all' );
 
-			wp_enqueue_style( 'main-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
+			wp_enqueue_style( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
 
-			wp_enqueue_style( 'style-responsive', plugin_dir_url( __FILE__ ) . 'css/style-responsive.css', array(), $this->version, 'all' );
+			// wp_enqueue_style( 'main-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
+
+			// wp_enqueue_style( 'style-responsive', plugin_dir_url( __FILE__ ) . 'css/style-responsive.css', array(), $this->version, 'all' );
 		}
 
 	}
@@ -108,29 +110,29 @@ class Varsity_Management_System_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		if($screen == 'toplevel_page_varsity-management'){
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/varsity-management-system-admin.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'bootstrap', plugin_dir_url( __FILE__ ) . 'lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'bootstrap', plugin_dir_url( __FILE__ ) . 'lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'jquery-dcjqaccordion', plugin_dir_url( __FILE__ ) . 'lib/jquery.dcjqaccordion.2.7.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'jquery-dcjqaccordion', plugin_dir_url( __FILE__ ) . 'lib/jquery.dcjqaccordion.2.7.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'jquery-scrollto', plugin_dir_url( __FILE__ ) . 'lib/jquery.scrollTo.min.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'jquery-scrollto', plugin_dir_url( __FILE__ ) . 'lib/jquery.scrollTo.min.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'jquery-nicescroll', plugin_dir_url( __FILE__ ) . 'lib/jquery.nicescroll.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'jquery-nicescroll', plugin_dir_url( __FILE__ ) . 'lib/jquery.nicescroll.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'jquery-sparkline', plugin_dir_url( __FILE__ ) . 'lib/jquery.sparkline.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'jquery-sparkline', plugin_dir_url( __FILE__ ) . 'lib/jquery.sparkline.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'common-scripts', plugin_dir_url( __FILE__ ) . 'lib/common-scripts.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'common-scripts', plugin_dir_url( __FILE__ ) . 'lib/common-scripts.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'jquery_gritter', plugin_dir_url( __FILE__ ) . 'lib/gritter/js/jquery.gritter.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'jquery_gritter', plugin_dir_url( __FILE__ ) . 'lib/gritter/js/jquery.gritter.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'gritter-conf', plugin_dir_url( __FILE__ ) . 'lib/gritter-conf.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'gritter-conf', plugin_dir_url( __FILE__ ) . 'lib/gritter-conf.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'sparkline-chart', plugin_dir_url( __FILE__ ) . 'lib/sparkline-chart.js', array( 'jquery' ), $this->version, false );
+			// wp_enqueue_script( 'sparkline-chart', plugin_dir_url( __FILE__ ) . 'lib/sparkline-chart.js', array( 'jquery' ), $this->version, false );
 
-			wp_enqueue_script( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'lib/zabuto_calendar.js', array( 'jquery' ), $this->version, false );
-		}
+			// wp_enqueue_script( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'lib/zabuto_calendar.js', array( 'jquery' ), $this->version, false );
+			wp_enqueue_script( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js');
+		
 
 	}
 

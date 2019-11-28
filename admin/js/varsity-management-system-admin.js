@@ -29,4 +29,12 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	 $(document).ready(function(){
+	    $('.datepicker').datepicker();
+	  });
+
+	 $('#textarea1').val('New Text');
+	 M.textareaAutoResize($('#textarea1'));
+
 })( jQuery );
+

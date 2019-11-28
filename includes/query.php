@@ -1,7 +1,22 @@
 <?php 
 
+global $wpdb;
+$table_prefix = $wpdb->prefix;
 
-$sql_query = ['CREATE TABLE IF NOT EXISTS User
+$sql_query = ["CREATE TABLE IF NOT EXISTS {$table_prefix}Student
+(
+ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+StudentId INT(10) UNIQUE,
+Name VARCHAR(100),
+DateOfBirth VARCHAR(100),
+Sex VARCHAR(10),
+MobileNumber VARCHAR(15),
+Address VARCHAR(255),
+FatherName VARCHAR(100),
+FatherMobileNumber VARCHAR(15)
+)",
+
+'CREATE TABLE IF NOT EXISTS User
 (
 ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Username VARCHAR(255),
@@ -42,19 +57,6 @@ IDLevel INT references Level(ID),
 Observation VARCHAR(255)
 )',
 
-
-'CREATE TABLE IF NOT EXISTS Student
-(
-ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-StudentId INT(10) UNIQUE,
-Name VARCHAR(100),
-DateOfBirth VARCHAR(100),
-Sex VARCHAR(10),
-MobileNumber VARCHAR(15),
-Address VARCHAR(255),
-FatherName VARCHAR(100),
-FatherMobileNumber VARCHAR(15)
-)',
 
 'CREATE TABLE IF NOT EXISTS Attendance
 (

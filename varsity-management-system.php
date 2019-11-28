@@ -64,7 +64,7 @@ register_deactivation_hook( __FILE__, 'deactivate_varsity_management_system' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-varsity-management-system.php';
 
-require plugin_dir_path( __FILE__ ) . 'includes/varsity-management-system-main.php';
+require plugin_dir_path( __FILE__ ) . 'index.php';
 
 
 /**
