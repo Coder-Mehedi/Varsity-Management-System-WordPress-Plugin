@@ -3,6 +3,7 @@
 class Varsity_management_system_main{
 	function __construct() {
 		add_action( 'admin_menu', array($this, 'vms_varsity_management_menu' ));
+		//global $wpdb;
 	}
 
 	function vms_create_table() {
@@ -12,7 +13,7 @@ class Varsity_management_system_main{
 		require_once 'includes/query.php';
 		foreach($sql_query as $query){
 
-			$main_query = $query.$charset_collate;
+			$main_query = $query . $charset_collate;
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($main_query);
 		}
@@ -43,7 +44,7 @@ class Varsity_management_system_main{
 		
 	}
 	function get_every_students() {
-			global $wpdb;
+			
 			$table = $wpdb->prefix.'Student';
 			$every_student = $wpdb->get_results("SELECT * FROM $table");
 
