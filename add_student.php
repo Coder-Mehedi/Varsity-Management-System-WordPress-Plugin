@@ -37,6 +37,7 @@ if(isset($_POST['submit'])) {
     	// print_r($error);
     } else {
 		$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
+		echo '<h3 class="center green-text">Add Student Successfully</h3>';
 		$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
 	}
 	// echo $SESSION['dob'];

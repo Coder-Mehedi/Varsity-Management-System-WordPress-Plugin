@@ -4,6 +4,7 @@ require_once 'main.php';
 $main = new Varsity_management_system_main();
 
 ?>
+<input type="submit" class="button" name="insert" value="insert" />
 
 
 <?php $all_students = $main->get_every_students(); ?>

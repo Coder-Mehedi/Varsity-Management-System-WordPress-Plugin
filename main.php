@@ -39,13 +39,12 @@ class Varsity_management_system_main{
 			// add_student(12);
 			// delete_student(34445654);
 			// update_student(344);
-
 		}
 
-		add_submenu_page( 'varsity-management', 'Add Student', 'Add Student', 'manage_options', 'add-student', 'add_student_form' );
+		add_submenu_page( 'varsity-management', 'Add Student', 'Add Student', 'manage_options', 'add-student', 'add_student_form_callback' );
 
-		function add_student_form() {
-			require_once 'add.php';
+		function add_student_form_callback() {
+			require_once 'add_student.php';
 		}
 
 		
