@@ -1,4 +1,3 @@
-
 <?php
 require_once 'main.php';
 $main = new Varsity_management_system_main();
@@ -26,7 +25,7 @@ if(isset($_POST['submit'])) {
 	if(empty($father_name)) {
         $error['father_name'] = "Father Name is required <br />";
     }
-	$father_mobile_number = $_POST['Father Mobile_number'];
+	$father_mobile_number = $_POST['father_mobile_number'];
 	if(empty($father_mobile_number)) {
         $error['father_mobile_number'] = "Father Mobile_number is required <br />";
     }
@@ -86,4 +85,3 @@ if(isset($_POST['submit'])) {
 		</form>
 	</div>
 </div>
-

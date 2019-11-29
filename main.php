@@ -25,15 +25,15 @@ class Varsity_management_system_main{
 
 		function vms_menu_callback() {
 			// require_once 'front.php';
-			echo 'helo';
+			echo 'hello';
 		}
 
-		add_submenu_page( 'varsity-management', 'Student', 'Student', 'manage_options', 'students', 'sub_callback' );
+		add_submenu_page( 'varsity-management', 'All Students', 'All Student', 'manage_options', 'students', 'all_student_sub_callback' );
 		
 
 
-		function sub_callback() {
-			require_once 'student_form.php';
+		function all_student_sub_callback() {
+			require_once 'all_student.php';
 
 			// get_every_students();
 			// add_student(12);
@@ -41,12 +41,20 @@ class Varsity_management_system_main{
 			// update_student(344);
 
 		}
+
+		add_submenu_page( 'varsity-management', 'Add Student', 'Add Student', 'manage_options', 'add-student', 'add_student_form' );
+
+		function add_student_form() {
+			require_once 'add.php';
+		}
+
 		
 	}
 	function get_every_students() {
-			
+			global $wpdb;
 			$table = $wpdb->prefix.'Student';
 			$every_student = $wpdb->get_results("SELECT * FROM $table");
+			return $every_student;
 
 			// print_r($every_student); // display data
 		}

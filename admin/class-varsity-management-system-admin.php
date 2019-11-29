@@ -72,7 +72,7 @@ class Varsity_Management_System_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		if($screen == 'varsity-management_page_students'){
+		// if($screen == 'varsity-management_page_students'){
 			
 
 			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/varsity-management-system-admin.css', array(), $this->version, 'all' );
@@ -88,7 +88,7 @@ class Varsity_Management_System_Admin {
 			// wp_enqueue_style( 'main-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
 			// wp_enqueue_style( 'style-responsive', plugin_dir_url( __FILE__ ) . 'css/style-responsive.css', array(), $this->version, 'all' );
-		}
+		// }
 
 	}
 
