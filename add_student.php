@@ -1,6 +1,6 @@
 <?php
-require_once 'main.php';
-$main = new Varsity_management_system_main();
+require_once 'student_methods.php';
+$main = new Students();
 
 $url_param_id = $_GET['id'] ?? '';
 if($url_param_id){
@@ -17,6 +17,7 @@ $address = $edit_student[0]->Address ?? '';
 $father_name = $edit_student[0]->FatherName ?? '';
 $father_mobile_number = $edit_student[0]->FatherMobileNumber ?? '';
 $date_of_birth = $edit_student[0]->DateOfBirth ?? '';
+$departments = ['Finance', 'Management', 'Marketing', 'Accounting'];
 
 $error = ['name' => '', 'gender' => '', 'mobile_number' => '', 'address' => '', 'father_name' => '', 'father_mobile_number' => '', 'date_of_birth' => ''];
 if(isset($_POST['submit'])) {
@@ -62,7 +63,6 @@ if(isset($_POST['submit'])) {
 			// $student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
 		}
 	}
-	// echo $SESSION['dob'];
 }
 
 ?>
@@ -104,7 +104,12 @@ if(isset($_POST['submit'])) {
 			<input type="text" class="datepicker" name="dob" placeholder="Date Of Birth" value="<?php echo $date_of_birth ?>">
 			<div class="red-text"><?php echo $error['date_of_birth'] ?></div>
 			<br>
-			<!-- <input type="submit" value="Submit" name="submit" class="btn"> -->
+			<!-- <select name="department">
+				<option value="" disabled selected>Select</option>
+				<option value="Male" <?php // echo $gender == 'Male' ? 'selected' : ''; ?>>Male</option>
+			</select> -->
+
+			
 			<?php $button_text = '';
 			if($url_param_id && $_GET['action'] == 'edit'){
 				$button_text = 'Update Student Info';
@@ -113,7 +118,8 @@ if(isset($_POST['submit'])) {
 			}
 
 			 ?>
-			<?php submit_button( $button_text ); ?>
+			<?php // submit_button( $button_text ); ?>
+			<button type="submit" name="submit" class="btn"><?php echo $button_text ?></button>
 		</form>
 	</div>
 </div>

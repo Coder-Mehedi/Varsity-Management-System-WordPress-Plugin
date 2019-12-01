@@ -31,7 +31,6 @@ class Varsity_management_system_main{
 		add_submenu_page( 'varsity-management', 'All Students', 'All Student', 'manage_options', 'students', 'all_student_sub_callback' );
 		
 
-
 		function all_student_sub_callback() {
 			require_once 'all_student.php';
 
@@ -47,62 +46,19 @@ class Varsity_management_system_main{
 			require_once 'add_student.php';
 		}
 
-		
+		add_submenu_page( 'varsity-management', 'All Departments', 'All Departments', 'manage_options', 'department', 'all_department' );
+
+		function all_department() {
+			require_once 'all_department.php';
+		}
+
+		add_submenu_page( 'varsity-management', 'Add Departments', 'Add Departments', 'manage_options', 'add_department', 'add_department' );
+
+		function add_department() {
+			require_once 'add_department.php';
+		}
 	}
-	function get_every_students() {
-			global $wpdb;
-			$table = $wpdb->prefix.'Student';
-			$every_student = $wpdb->get_results("SELECT * FROM $table");
-			return $every_student;
-
-			// print_r($every_student); // display data
-		}
-
-		function get_student_by_id($student_id) {
-			global $wpdb;
-			$table = $wpdb->prefix.'Student';
-			$student = $wpdb->get_results("SELECT * FROM $table WHERE StudentId = $student_id");
-
-			return $student;
-		}
-
-
-		function add_student($student_id, $student_name, $student_gender, $student_dob, $mobile_number, $address, $father_name, $father_mobile_number) {
-			$exist = $this->get_student_by_id($student_id);
-
-			if($exist) return;
-
-			global $wpdb;
-			$table = $wpdb->prefix.'Student';
-			$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number );
-			$format = array('%s','%d', '%s', '%s', '%s', '%s', '%s');
-			$wpdb->insert($table,$data,$format);
-			// $my_id = $wpdb->insert_id;
-		}
-		
-		function update_student($student_id, $student_name, $student_gender, $student_dob, $mobile_number, $address, $father_name, $father_mobile_number) {
-			$exist = $this->get_student_by_id($student_id);
-
-			if(!$exist) return;
-
-			global $wpdb;
-			$table = $wpdb->prefix.'Student';
-			$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number );
-			$where = array('StudentId' => $student_id);
-			$wpdb->update($table,$data,$where);
-			// $my_id = $wpdb->insert_id;
-		}
-
-		function delete_student($student_id) {
-			$exist = $this->get_student_by_id($student_id);
-
-			if(!$exist) return;
-			// print_r($exist);
-			global $wpdb;
-			$table = $wpdb->prefix.'Student';
-			$data = array('StudentId' => $student_id);
-			$wpdb->delete($table,$data);
-		}
+	
 
 	
 }

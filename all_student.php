@@ -1,7 +1,7 @@
 
 <?php
-require_once 'main.php';
-$main = new Varsity_management_system_main();
+require_once 'student_methods.php';
+$main = new Students();
 
 $student_id = $_GET['id'] ?? '';
 
@@ -13,6 +13,7 @@ if($student_id && $_GET['action'] == 'delete') {
 
 <?php $all_students = $main->get_every_students(); ?>
 	<h1 class="center">All Students</h1>
+  <a class="btn right" href="<?php echo admin_url( 'admin.php?page=add-student' ) ?>">Add Student</a>
   <table class="responsive-table">
     <thead>
       <tr>
