@@ -1,10 +1,26 @@
 <?php
 require_once 'main.php';
 $main = new Varsity_management_system_main();
-$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
+
+$url_param_id = $_GET['id'] ?? '';
+if($url_param_id){
+	$edit_student = $main->get_student_by_id($url_param_id);
+}
+// print_r($edit_student);
+
+
+$student_id = $edit_student[0]->StudentId ?? rand();;
+$name = $edit_student[0]->Name ?? '';
+$gender = $edit_student[0]->Sex ?? '';
+$mobile_number = $edit_student[0]->MobileNumber ?? '';
+$address = $edit_student[0]->Address ?? '';
+$father_name = $edit_student[0]->FatherName ?? '';
+$father_mobile_number = $edit_student[0]->FatherMobileNumber ?? '';
+$date_of_birth = $edit_student[0]->DateOfBirth ?? '';
+
 $error = ['name' => '', 'gender' => '', 'mobile_number' => '', 'address' => '', 'father_name' => '', 'father_mobile_number' => '', 'date_of_birth' => ''];
 if(isset($_POST['submit'])) {
-	$student_id = rand();
+	
 	$name = $_POST['name'];
 	if(empty($name)) {
         $error['name'] = "Name is required <br />";
@@ -36,9 +52,15 @@ if(isset($_POST['submit'])) {
     if(array_filter($error)){
     	// print_r($error);
     } else {
-		$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
-		echo '<h3 class="center green-text">Add Student Successfully</h3>';
-		$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
+    	if(!$url_param_id){
+			$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
+			echo '<h3 class="center green-text">Add Student Successfully</h3>';
+			$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
+		}elseif($url_param_id && $_GET['action'] == 'edit') {
+			$main->update_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
+			echo '<h3 class="center green-text">Student Information Updated Successfully</h3>';
+			// $student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
+		}
 	}
 	// echo $SESSION['dob'];
 }
@@ -82,7 +104,16 @@ if(isset($_POST['submit'])) {
 			<input type="text" class="datepicker" name="dob" placeholder="Date Of Birth" value="<?php echo $date_of_birth ?>">
 			<div class="red-text"><?php echo $error['date_of_birth'] ?></div>
 			<br>
-			<input type="submit" value="Submit" name="submit" class="btn">
+			<!-- <input type="submit" value="Submit" name="submit" class="btn"> -->
+			<?php $button_text = '';
+			if($url_param_id && $_GET['action'] == 'edit'){
+				$button_text = 'Update Student Info';
+			} else {
+				$button_text = 'Add Student';
+			}
+
+			 ?>
+			<?php submit_button( $button_text ); ?>
 		</form>
 	</div>
 </div>

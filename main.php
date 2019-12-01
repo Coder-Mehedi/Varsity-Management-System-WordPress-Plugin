@@ -79,17 +79,18 @@ class Varsity_management_system_main{
 			$wpdb->insert($table,$data,$format);
 			// $my_id = $wpdb->insert_id;
 		}
-
-		function update_student($student_id) {
+		
+		function update_student($student_id, $student_name, $student_gender, $student_dob, $mobile_number, $address, $father_name, $father_mobile_number) {
 			$exist = $this->get_student_by_id($student_id);
+
 			if(!$exist) return;
 
 			global $wpdb;
 			$table = $wpdb->prefix.'Student';
-			$data = array('Name' => 'Abir');
+			$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number );
 			$where = array('StudentId' => $student_id);
-			$wpdb->update($table, $data, $where);
-
+			$wpdb->update($table,$data,$where);
+			// $my_id = $wpdb->insert_id;
 		}
 
 		function delete_student($student_id) {

@@ -3,9 +3,13 @@
 require_once 'main.php';
 $main = new Varsity_management_system_main();
 
-?>
-<input type="submit" class="button" name="insert" value="insert" />
+$student_id = $_GET['id'] ?? '';
 
+if($student_id && $_GET['action'] == 'delete') {
+      $main->delete_student($student_id);
+      echo '<h3 class="center green-text">Student Information Deleted</h3>';
+    }
+?>
 
 <?php $all_students = $main->get_every_students(); ?>
 	<h1 class="center">All Students</h1>
@@ -20,6 +24,7 @@ $main = new Varsity_management_system_main();
           <th>Address</th>
           <th>Father Name</th>
           <th>Father Name Number</th>
+          <th>Actions</th>
       </tr>
     </thead>
 
@@ -34,6 +39,10 @@ $main = new Varsity_management_system_main();
         <td><?php echo $student->Address; ?></td>
         <td><?php echo $student->FatherName; ?></td>
         <td><?php echo $student->FatherMobileNumber; ?></td>
+        <td>
+          <a href="<?php echo admin_url( 'admin.php?page=add-student&id=' . $student->StudentId . '&action=edit' ); ?>">Edit</a>
+          <a href="<?php echo admin_url( 'admin.php?page=students&id=' . $student->StudentId . '&action=delete' ); ?>">Delete</a>
+        </td>
       </tr>
   	<?php endforeach; ?>
     </tbody>
