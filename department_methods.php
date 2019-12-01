@@ -42,7 +42,7 @@ class Department{
 
 		global $wpdb;
 		$table = $wpdb->prefix.'department';
-		$data = array('Name' => $department_name);
+		$data = array('Name' => $department_name, 'DepartmentId' => $department_id);
 		$where = array('DepartmentId' => $department_id);
 		$wpdb->update($table,$data,$where);
 		// $my_id = $wpdb->insert_id;
