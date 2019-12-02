@@ -33,8 +33,7 @@ Name VARCHAR(255)
 "CREATE TABLE IF NOT EXISTS {$table_prefix}department
 (
 ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-Name VARCHAR(50),
-DepartmentId INT(8)
+Name VARCHAR(50)
 )",
 
 "CREATE TABLE IF NOT EXISTS {$table_prefix}Subject

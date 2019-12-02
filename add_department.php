@@ -3,21 +3,15 @@ require_once 'department_methods.php';
 $department = new Department();
 $url_param_id = $_GET['id'] ?? '';
 if($url_param_id){
-	$edit_department = $department->get_department_by_id($url_param_id);
+	$edit_department = $department->get_department_by_name($url_param_id);
 }
-$department_id = $edit_department[0]->DepartmentId ?? '';
-$department_name = $edit_department[0]->Name ?? '';
+// $department_id = $edit_department[0]->ID ?? $department->get_last_id();
+$old_department_name = $department_name = $edit_department[0]->Name ?? '';
 
-//$department->add_department(1000, 'Finance & Banking');
-// print_r($department->get_department_by_id(1000));
-$error = ['id' => '', 'name' => ''];
+$error = ['name' => ''];
 
 if(isset($_POST['submit'])) {
 	
-	$department_id = $_POST['department_id'];
-	if(empty($department_id)) {
-        $error['id'] = "Department ID is required <br />";
-    }
 	$department_name = $_POST['name'] ?? '';
 	if(empty($department_name)) {
         $error['name'] = "Department Name is required <br />";
@@ -27,11 +21,11 @@ if(isset($_POST['submit'])) {
     	// print_r($error);
     } else {
     	if(!$url_param_id){
-			$department->add_department($department_id, $department_name);
+			$department->add_department($department_name);
 			echo "<h3 class='center green-text'>$department_name Department Added</h3>";
-			$department_id = $department_name =  null;
+			$department_name =  null;
 		}elseif($url_param_id && $_GET['action'] == 'edit') {
-			$department->update_department($department_id, $department_name);
+			$department->update_department($old_department_name, $department_name);
 			echo "<h3 class='center green-text'>$department_name Department Information Updated Successfully</h3>";
 		}
 	}
@@ -44,10 +38,6 @@ if(isset($_POST['submit'])) {
 	<h1 class="center">Add Department</h1>
 	<div class="col m6 offset-m3 ">
 		<form method="POST" id="department">
-			<label for="department_id">Department ID</label>
-			<input type="number" name="department_id" id="department_id" value="<?php echo $department_id ?>">
-			<div class="red-text"><?php echo $error['id'] ?></div>
-
 			<label for="name">Department Name</label>
 			<input type="text" name="name" id="name" value="<?php echo $department_name ?>">
 			<div class="red-text"><?php echo $error['name'] ?></div>

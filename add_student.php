@@ -70,7 +70,7 @@ if(isset($_POST['submit'])) {
     	if(!$url_param_id){
 			$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number, $department);
 			echo '<h3 class="center green-text">Add Student Successfully</h3>';
-			$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
+			$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = $department = null;
 		}elseif($url_param_id && $_GET['action'] == 'edit') {
 			$main->update_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number, $department);
 			echo '<h3 class="center green-text">Student Information Updated Successfully</h3>';
@@ -118,10 +118,6 @@ if(isset($_POST['submit'])) {
 			<input type="text" class="datepicker" name="dob" placeholder="Date Of Birth" value="<?php echo $date_of_birth ?>">
 			<div class="red-text"><?php echo $error['date_of_birth'] ?></div>
 			<br>
-			<!-- <select name="department">
-				<option value="" disabled selected>Select</option>
-				<option value="Male" <?php // echo $gender == 'Male' ? 'selected' : ''; ?>>Male</option>
-			</select> -->
 			<label for="department">Department</label>
 			<select name="department">
 				<option value="" disabled selected>Select</option>

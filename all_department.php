@@ -17,9 +17,7 @@ if($department_id && $_GET['action'] == 'delete') {
   <table class="responsive-table">
     <thead>
       <tr>
-          <th>Department ID</th>
           <th>Department Name</th>
-         
           <th>Actions</th>
       </tr>
     </thead>
@@ -27,12 +25,11 @@ if($department_id && $_GET['action'] == 'delete') {
     <tbody>
     <?php foreach($all_departments as $department): ?>
       <tr>
-        <td><?php echo $department->DepartmentId; ?></td>
         <td><?php echo $department->Name; ?></td>
         
         <td>
-          <a href="<?php echo admin_url( 'admin.php?page=add_department&id=' . $department->DepartmentId . '&action=edit' ); ?>">Edit</a>
-          <a href="<?php echo admin_url( 'admin.php?page=department&id=' . $department->DepartmentId . '&action=delete' ); ?>">Delete</a>
+          <a href="<?php echo admin_url( 'admin.php?page=add_department&id=' . $department->Name . '&action=edit' ); ?>">Edit</a>
+          <a href="<?php echo admin_url( 'admin.php?page=department&id=' . $department->Name . '&action=delete' ); ?>">Delete</a>
         </td>
       </tr>
   	<?php endforeach; ?>
