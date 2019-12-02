@@ -13,13 +13,14 @@ if($student_id && $_GET['action'] == 'delete') {
 
 <?php $all_students = $main->get_every_students(); ?>
 	<h1 class="center">All Students</h1>
-  <a class="btn right" href="<?php echo admin_url( 'admin.php?page=add-student' ) ?>">Add Student</a>
+  <a class="btn right" href="<?php echo admin_url( 'admin.php?page=add_student' ) ?>">Add Student</a>
   <table class="responsive-table">
     <thead>
       <tr>
           <th>Name</th>
           <th>Student ID</th>
           <th>Student Department</th>
+          <th>Semester</th>
           <th>Date Of Birth</th>
           <th>Gender</th>
           <th>Mobile Number</th>
@@ -36,6 +37,7 @@ if($student_id && $_GET['action'] == 'delete') {
         <td><?php echo $student->Name; ?></td>
         <td><?php echo $student->StudentId; ?></td>
         <td><?php echo $student->Department; ?></td>
+        <td><?php echo $student->Semester; ?></td>
         <td><?php echo $student->DateOfBirth; ?></td>
         <td><?php echo $student->Sex; ?></td>
         <td><?php echo $student->MobileNumber; ?></td>
@@ -43,8 +45,8 @@ if($student_id && $_GET['action'] == 'delete') {
         <td><?php echo $student->FatherName; ?></td>
         <td><?php echo $student->FatherMobileNumber; ?></td>
         <td>
-          <a href="<?php echo admin_url( 'admin.php?page=add-student&id=' . $student->StudentId . '&action=edit' ); ?>">Edit</a>
-          <a href="<?php echo admin_url( 'admin.php?page=students&id=' . $student->StudentId . '&action=delete' ); ?>">Delete</a>
+          <a href="<?php echo admin_url( 'admin.php?page=add_student&id=' . $student->StudentId . '&action=edit' ); ?>">Edit</a>
+          <a href="<?php echo admin_url( 'admin.php?page=all_students&id=' . $student->StudentId . '&action=delete' ); ?>">Delete</a>
         </td>
       </tr>
   	<?php endforeach; ?>

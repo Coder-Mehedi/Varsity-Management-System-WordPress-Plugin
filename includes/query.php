@@ -14,7 +14,8 @@ MobileNumber VARCHAR(15),
 Address VARCHAR(255),
 FatherName VARCHAR(100),
 FatherMobileNumber VARCHAR(15),
-Department VARCHAR(100)
+Department VARCHAR(100),
+Semester VARCHAR(100)
 )",
 
 "CREATE TABLE IF NOT EXISTS {$table_prefix}semester

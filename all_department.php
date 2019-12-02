@@ -29,7 +29,7 @@ if($department_id && $_GET['action'] == 'delete') {
         
         <td>
           <a href="<?php echo admin_url( 'admin.php?page=add_department&id=' . $department->Name . '&action=edit' ); ?>">Edit</a>
-          <a href="<?php echo admin_url( 'admin.php?page=department&id=' . $department->Name . '&action=delete' ); ?>">Delete</a>
+          <a href="<?php echo admin_url( 'admin.php?page=all_department&id=' . $department->Name . '&action=delete' ); ?>">Delete</a>
         </td>
       </tr>
   	<?php endforeach; ?>
