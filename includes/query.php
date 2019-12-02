@@ -17,17 +17,10 @@ FatherMobileNumber VARCHAR(15),
 Department VARCHAR(100)
 )",
 
-"CREATE TABLE IF NOT EXISTS {$table_prefix}User
+"CREATE TABLE IF NOT EXISTS {$table_prefix}semester
 (
 ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-Username VARCHAR(255),
-Password VARCHAR(255)
-)",
-
-"CREATE TABLE IF NOT EXISTS {$table_prefix}Area
-(
-ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-Name VARCHAR(255)
+Name VARCHAR(50)
 )",
 
 "CREATE TABLE IF NOT EXISTS {$table_prefix}department

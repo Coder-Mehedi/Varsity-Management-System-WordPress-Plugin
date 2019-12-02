@@ -61,6 +61,8 @@ class Varsity_Management_System_Admin {
 	 */
 	public function enqueue_styles($screen) {
 
+
+
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -72,6 +74,10 @@ class Varsity_Management_System_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+
+
+		if (strpos($screen, 'varsity-management') !== false) {
+		  
 		// if($screen == 'varsity-management_page_students'){
 			
 
@@ -88,8 +94,7 @@ class Varsity_Management_System_Admin {
 			// wp_enqueue_style( 'main-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
 			// wp_enqueue_style( 'style-responsive', plugin_dir_url( __FILE__ ) . 'css/style-responsive.css', array(), $this->version, 'all' );
-		// }
-
+		} 
 	}
 
 	/**
@@ -110,6 +115,7 @@ class Varsity_Management_System_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+		if (strpos($screen, 'varsity-management') !== false) {
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/varsity-management-system-admin.js', array( 'jquery','materialize' ), $this->version, false );
 
 			// wp_enqueue_script( 'bootstrap', plugin_dir_url( __FILE__ ) . 'lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
@@ -132,7 +138,7 @@ class Varsity_Management_System_Admin {
 
 			// wp_enqueue_script( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'lib/zabuto_calendar.js', array( 'jquery' ), $this->version, false );
 			wp_enqueue_script( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js');
-		
+		}
 
 	}
 
