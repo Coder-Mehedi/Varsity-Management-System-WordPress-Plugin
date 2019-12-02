@@ -6,7 +6,7 @@ if($url_param_id){
 	$edit_department = $department->get_department_by_id($url_param_id);
 }
 $department_id = $edit_department[0]->DepartmentId ?? '';
-$name = $edit_department[0]->Name ?? '';
+$department_name = $edit_department[0]->Name ?? '';
 
 //$department->add_department(1000, 'Finance & Banking');
 // print_r($department->get_department_by_id(1000));
@@ -28,15 +28,14 @@ if(isset($_POST['submit'])) {
     } else {
     	if(!$url_param_id){
 			$department->add_department($department_id, $department_name);
-			echo '<h3 class="center green-text">Department Added</h3>';
-			$department_id = $name =  null;
+			echo "<h3 class='center green-text'>$department_name Department Added</h3>";
+			$department_id = $department_name =  null;
 		}elseif($url_param_id && $_GET['action'] == 'edit') {
 			$department->update_department($department_id, $department_name);
-			echo '<h3 class="center green-text">Department Information Updated Successfully</h3>';
+			echo "<h3 class='center green-text'>$department_name Department Information Updated Successfully</h3>";
 		}
 	}
 }
-
 
 ?>
 
@@ -50,7 +49,7 @@ if(isset($_POST['submit'])) {
 			<div class="red-text"><?php echo $error['id'] ?></div>
 
 			<label for="name">Department Name</label>
-			<input type="text" name="name" id="name" value="<?php echo $name ?>">
+			<input type="text" name="name" id="name" value="<?php echo $department_name ?>">
 			<div class="red-text"><?php echo $error['name'] ?></div>
 	
 			<button type="submit" name="submit" class="btn">Add Department</button>

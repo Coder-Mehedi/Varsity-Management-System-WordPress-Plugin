@@ -5,13 +5,13 @@ class Department{
 		
 	}
 	public function get_every_department() {
-			global $wpdb;
-			$table = $wpdb->prefix.'department';
-			$every_department = $wpdb->get_results("SELECT * FROM $table");
-			return $every_department;
+		global $wpdb;
+		$table = $wpdb->prefix.'department';
+		$every_department = $wpdb->get_results("SELECT * FROM $table");
+		return $every_department;
 
-			// print_r($every_department); // display data
-		}
+		// print_r($every_department); // display data
+	}
 
 	public function get_department_by_id($department_id) {
 		global $wpdb;

@@ -19,6 +19,7 @@ if($student_id && $_GET['action'] == 'delete') {
       <tr>
           <th>Name</th>
           <th>Student ID</th>
+          <th>Student Department</th>
           <th>Date Of Birth</th>
           <th>Gender</th>
           <th>Mobile Number</th>
@@ -34,6 +35,7 @@ if($student_id && $_GET['action'] == 'delete') {
       <tr>
         <td><?php echo $student->Name; ?></td>
         <td><?php echo $student->StudentId; ?></td>
+        <td><?php echo $student->Department; ?></td>
         <td><?php echo $student->DateOfBirth; ?></td>
         <td><?php echo $student->Sex; ?></td>
         <td><?php echo $student->MobileNumber; ?></td>

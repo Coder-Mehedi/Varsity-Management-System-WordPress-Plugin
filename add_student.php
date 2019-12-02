@@ -1,12 +1,22 @@
 <?php
 require_once 'student_methods.php';
+require_once 'department_methods.php';
 $main = new Students();
 
 $url_param_id = $_GET['id'] ?? '';
 if($url_param_id){
 	$edit_student = $main->get_student_by_id($url_param_id);
 }
+
+if($url_param_id && $_GET['action'] == 'edit'){
+	$button_text = 'Update Student Info';
+} else {
+	$button_text = 'Add Student';
+}
 // print_r($edit_student);
+
+$dept = new Department();
+$all_dept = $dept->get_every_department();
 
 
 $student_id = $edit_student[0]->StudentId ?? rand();;
@@ -17,9 +27,9 @@ $address = $edit_student[0]->Address ?? '';
 $father_name = $edit_student[0]->FatherName ?? '';
 $father_mobile_number = $edit_student[0]->FatherMobileNumber ?? '';
 $date_of_birth = $edit_student[0]->DateOfBirth ?? '';
-$departments = ['Finance', 'Management', 'Marketing', 'Accounting'];
+$department = $edit_student[0]->Department ?? '';
 
-$error = ['name' => '', 'gender' => '', 'mobile_number' => '', 'address' => '', 'father_name' => '', 'father_mobile_number' => '', 'date_of_birth' => ''];
+$error = ['name' => '', 'gender' => '', 'mobile_number' => '', 'address' => '', 'father_name' => '', 'father_mobile_number' => '', 'date_of_birth' => '', 'department' => ''];
 if(isset($_POST['submit'])) {
 	
 	$name = $_POST['name'];
@@ -50,15 +60,19 @@ if(isset($_POST['submit'])) {
 	if(empty($date_of_birth)) {
         $error['date_of_birth'] = "Date Of Birth is required <br />";
     }
+    $department = $_POST['department'] ?? '';
+	if(empty($department)) {
+        $error['department'] = "Department is required <br />";
+    }
     if(array_filter($error)){
     	// print_r($error);
     } else {
     	if(!$url_param_id){
-			$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
+			$main->add_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number, $department);
 			echo '<h3 class="center green-text">Add Student Successfully</h3>';
 			$student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
 		}elseif($url_param_id && $_GET['action'] == 'edit') {
-			$main->update_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number);
+			$main->update_student($student_id, $name, $gender, $date_of_birth, $mobile_number, $address, $father_name, $father_mobile_number, $department);
 			echo '<h3 class="center green-text">Student Information Updated Successfully</h3>';
 			// $student_id = $name = $gender = $mobile_number = $address = $father_name = $father_mobile_number = $date_of_birth = null;
 		}
@@ -108,17 +122,15 @@ if(isset($_POST['submit'])) {
 				<option value="" disabled selected>Select</option>
 				<option value="Male" <?php // echo $gender == 'Male' ? 'selected' : ''; ?>>Male</option>
 			</select> -->
+			<label for="department">Department</label>
+			<select name="department">
+				<option value="" disabled selected>Select</option>
+				<?php foreach($all_dept as $single_dept): ?>
+				<option value="<?php echo $single_dept->Name ?>" <?php echo $department == $single_dept->Name ? 'selected' : ''; ?>><?php echo $single_dept->Name; ?></option>
+				<?php endforeach; ?>
+			</select>
+			<div class="red-text"><?php echo $error['department'] ?></div>
 
-			
-			<?php $button_text = '';
-			if($url_param_id && $_GET['action'] == 'edit'){
-				$button_text = 'Update Student Info';
-			} else {
-				$button_text = 'Add Student';
-			}
-
-			 ?>
-			<?php // submit_button( $button_text ); ?>
 			<button type="submit" name="submit" class="btn"><?php echo $button_text ?></button>
 		</form>
 	</div>
