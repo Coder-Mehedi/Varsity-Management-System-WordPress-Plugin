@@ -130,7 +130,7 @@ if(isset($_POST['submit'])) {
 			<select name="department">
 				<option value="" disabled selected>Select</option>
 				<?php foreach($all_dept as $single_dept): ?>
-				<option value="<?php echo $single_dept->Name ?>" <?php echo $department == $single_dept->Name ? 'selected' : ''; ?>><?php echo $single_dept->Name; ?></option>
+				<option value="<?php echo $single_dept->ID ?>" <?php echo $department == $single_dept->ID ? 'selected' : ''; ?>><?php echo $single_dept->Name; ?></option>
 				<?php endforeach; ?>
 			</select>
 			<div class="red-text"><?php echo $error['department'] ?></div>
@@ -139,7 +139,7 @@ if(isset($_POST['submit'])) {
 			<select name="semester">
 				<option value="" disabled selected>Select</option>
 				<?php foreach($all_semester as $single_semester): ?>
-				<option value="<?php echo $single_semester->Name ?>" <?php echo $semester == $single_semester->Name ? 'selected' : ''; ?>><?php echo $single_semester->Name; ?></option>
+				<option value="<?php echo $single_semester->ID ?>" <?php echo $semester == $single_semester->ID ? 'selected' : ''; ?>><?php echo $single_semester->Name; ?></option>
 				<?php endforeach; ?>
 			</select>
 			<div class="red-text"><?php echo $error['semester'] ?></div>

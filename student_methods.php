@@ -6,7 +6,7 @@ class Students{
 	}
 	public function get_every_students() {
 			global $wpdb;
-			$table = $wpdb->prefix.'Student';
+			$table = $wpdb->prefix.'student';
 			$every_student = $wpdb->get_results("SELECT * FROM $table");
 			return $every_student;
 
@@ -15,7 +15,7 @@ class Students{
 
 	public function get_student_by_id($student_id) {
 		global $wpdb;
-		$table = $wpdb->prefix.'Student';
+		$table = $wpdb->prefix.'student';
 		$student = $wpdb->get_results("SELECT * FROM $table WHERE StudentId = $student_id");
 
 		return $student;
@@ -29,8 +29,8 @@ class Students{
 		if($exist) return;
 
 		global $wpdb;
-		$table = $wpdb->prefix.'Student';
-		$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number, 'Department' => $department, 'Semester' => $semester );
+		$table = $wpdb->prefix.'student';
+		$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number, 'DepartmentId' => $department, 'SemesterId' => $semester );
 		$format = array('%s','%d', '%s', '%s', '%s', '%s', '%s', '%s');
 		$wpdb->insert($table,$data,$format);
 		// $my_id = $wpdb->insert_id;
@@ -42,7 +42,7 @@ class Students{
 		if(!$exist) return;
 
 		global $wpdb;
-		$table = $wpdb->prefix.'Student';
+		$table = $wpdb->prefix.'student';
 		$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number, 'Department' => $department, 'Semester' => $semester );
 		$where = array('StudentId' => $student_id);
 		$wpdb->update($table,$data,$where);
@@ -55,7 +55,7 @@ class Students{
 		if(!$exist) return;
 		// print_r($exist);
 		global $wpdb;
-		$table = $wpdb->prefix.'Student';
+		$table = $wpdb->prefix.'student';
 		$data = array('StudentId' => $student_id);
 		$wpdb->delete($table,$data);
 	}

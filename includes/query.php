@@ -3,7 +3,7 @@
 global $wpdb;
 $table_prefix = $wpdb->prefix;
 
-$sql_query = ["CREATE TABLE IF NOT EXISTS {$table_prefix}Student
+$sql_query = ["CREATE TABLE IF NOT EXISTS {$table_prefix}student
 (
 ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 StudentId INT(10) UNIQUE,
@@ -14,8 +14,8 @@ MobileNumber VARCHAR(15),
 Address VARCHAR(255),
 FatherName VARCHAR(100),
 FatherMobileNumber VARCHAR(15),
-Department VARCHAR(100),
-Semester VARCHAR(100)
+DepartmentId VARCHAR(100),
+SemesterId VARCHAR(100)
 )",
 
 "CREATE TABLE IF NOT EXISTS {$table_prefix}semester
