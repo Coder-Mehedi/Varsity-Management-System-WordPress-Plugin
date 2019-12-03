@@ -12,17 +12,17 @@ Author: Carlos Alvarez
 Website: http://Alvarez.is/
 */
 
-#menu, #wpadminbar, #adminmenuback, #adminmenuwrap {
+#menu, #wpadminbar, #adminmenuback, #adminmenuwrap, #wpfooter {
     display: none;
 }
 
-#wpcontent, #wpfooter, html.wp-toolbar {
+#wpcontent, #wpfooter, html.wp-toolbar, #wpbody-content {
     margin: 0;
     padding: 0;
 }
 
 #main-content {
-    min-height: calc(100vh - 71px);
+    min-height: calc(100vh - 90px);
 }
 
 /* Import fonts */

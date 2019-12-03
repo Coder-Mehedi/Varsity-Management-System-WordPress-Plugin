@@ -26,7 +26,7 @@ if($student_id && $_GET['action'] == 'delete') {
           <th>Mobile Number</th>
           <th>Address</th>
           <th>Father Name</th>
-          <th>Father Name Number</th>
+          <th>Father Mobile Number</th>
           <th>Actions</th>
       </tr>
     </thead>
