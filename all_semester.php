@@ -1,6 +1,6 @@
 
 <?php
-require_once 'semester_methods.php';
+require_once 'admin/semester_methods.php';
 $semester = new Semester();
 
 $semester_id = $_GET['id'] ?? '';

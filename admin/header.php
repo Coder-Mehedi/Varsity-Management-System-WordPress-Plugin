@@ -156,7 +156,7 @@
           <p class="centered"><a href="profile.html"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="#">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -167,8 +167,8 @@
               <span>Students</span>
               </a>
             <ul class="sub">
-              <li class="active"><a href="<?php admin_url( '.php?page=all_students' ) ?>">All Students</a></li>
-              <li class=""><a href="<?php admin_url( '.php?page=add_students' ) ?>">Add Student</a></li>
+              <li class="active"><a href="<?php echo admin_url( 'admin.php?page=all_students' ) ?>">All Students</a></li>
+              <li class=""><a href="<?php echo admin_url( 'admin.php?page=add_student' ) ?>">Add Student</a></li>
             </ul>
           </li>
           

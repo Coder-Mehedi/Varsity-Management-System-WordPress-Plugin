@@ -6,8 +6,23 @@ class Students{
 	}
 	public function get_every_students() {
 			global $wpdb;
+			$sql = "SELECT
+					s.Name,
+					s.StudentId,
+				    s.DateOfBirth,
+				    s.Sex,
+				    s.MobileNumber,
+				    s.Address,
+				    s.FatherName,
+				    s.FatherMobileNumber,
+				    d.Name AS DepartmentName
+				FROM `wp_student` s
+				JOIN wp_department d
+					ON DepartmentId = d.ID";
 			$table = $wpdb->prefix.'student';
-			$every_student = $wpdb->get_results("SELECT * FROM $table");
+			// $every_student = $wpdb->get_results("SELECT * FROM $table");
+			$every_student = $wpdb->get_results($sql);
+
 			return $every_student;
 
 			// print_r($every_student); // display data

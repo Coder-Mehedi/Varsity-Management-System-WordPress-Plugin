@@ -1,6 +1,6 @@
 
 <?php
-require_once 'department_methods.php';
+require_once 'admin/department_methods.php';
 $department = new Department();
 
 $department_id = $_GET['id'] ?? '';

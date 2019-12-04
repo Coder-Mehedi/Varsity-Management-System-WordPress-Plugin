@@ -1,7 +1,7 @@
 <?php
-require_once 'student_methods.php';
-require_once 'department_methods.php';
-require_once 'semester_methods.php';
+require_once 'admin/student_methods.php';
+require_once 'admin/department_methods.php';
+require_once 'admin/semester_methods.php';
 $main = new Students();
 
 $url_param_id = $_GET['id'] ?? '';

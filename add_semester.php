@@ -1,5 +1,5 @@
 <?php echo $name = ''; 
-require_once 'semester_methods.php';
+require_once 'admin/semester_methods.php';
 $semester = new Semester();
 $url_param_id = $_GET['id'] ?? '';
 if($url_param_id){

@@ -1,6 +1,6 @@
 
 <?php
-require_once 'student_methods.php';
+require_once 'admin/student_methods.php';
 $main = new Students();
 
 $student_id = $_GET['id'] ?? '';
