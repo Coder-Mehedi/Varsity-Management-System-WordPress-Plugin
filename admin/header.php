@@ -24,19 +24,11 @@
   <link href="<?php echo plugin_dir_url( __FILE__ ) ?>/css/style-responsive.css" rel="stylesheet">
   <script src="<?php echo plugin_dir_url( __FILE__ ) ?>/lib/chart-master/Chart.js"></script>
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap--template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
 </head>
 
 <body>
   <section id="container">
-    <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
+
     <!--header start-->
     <header class="header black-bg">
       <div class="sidebar-toggle-box">
@@ -91,7 +83,7 @@
                 <p class="green">You have 5 new messages</p>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="#">
                   <span class="photo"><img alt="avatar" src="<?php echo plugin_dir_url( __FILE__ ) ?>/img/ui-zac.jpg"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
@@ -162,13 +154,24 @@
               </a>
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a class="" href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Students</span>
               </a>
             <ul class="sub">
-              <li class="active"><a href="<?php echo admin_url( 'admin.php?page=all_students' ) ?>">All Students</a></li>
+              <li class=""><a href="<?php echo admin_url( 'admin.php?page=all_students' ) ?>">All Students</a></li>
               <li class=""><a href="<?php echo admin_url( 'admin.php?page=add_student' ) ?>">Add Student</a></li>
+            </ul>
+          </li>
+
+          <li class="sub-menu active">
+            <a class="" href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Department</span>
+              </a>
+            <ul class="sub">
+              <li class=""><a href="<?php echo admin_url( 'admin.php?page=all_department' ) ?>">All Departments</a></li>
+              <li class=""><a href="<?php echo admin_url( 'admin.php?page=add_department' ) ?>">Add Department</a></li>
             </ul>
           </li>
           

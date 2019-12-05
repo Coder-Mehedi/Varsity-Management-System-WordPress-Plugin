@@ -89,7 +89,7 @@ class Varsity_Management_System_Admin {
 
 			// wp_enqueue_style( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'css/zabuto_calendar.css', array(), $this->version, 'all' );
 
-			wp_enqueue_style( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
+	wp_enqueue_style( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
 
 			// wp_enqueue_style( 'main-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
@@ -137,7 +137,7 @@ class Varsity_Management_System_Admin {
 			// wp_enqueue_script( 'sparkline-chart', plugin_dir_url( __FILE__ ) . 'lib/sparkline-chart.js', array( 'jquery' ), $this->version, false );
 
 			// wp_enqueue_script( 'zabuto_calendar', plugin_dir_url( __FILE__ ) . 'lib/zabuto_calendar.js', array( 'jquery' ), $this->version, false );
-			wp_enqueue_script( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js');
+	wp_enqueue_script( 'materialize', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js');
 		}
 
 	}

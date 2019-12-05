@@ -38,8 +38,8 @@ $address = $edit_student[0]->Address ?? '';
 $father_name = $edit_student[0]->FatherName ?? '';
 $father_mobile_number = $edit_student[0]->FatherMobileNumber ?? '';
 $date_of_birth = $edit_student[0]->DateOfBirth ?? '';
-$department = $edit_student[0]->Department ?? '';
-$semester = $edit_student[0]->Semester ?? '';
+$department = $edit_student[0]->DepartmentId ?? '';
+$semester = $edit_student[0]->SemesterId ?? '';
 
 $error = ['name' => '', 'gender' => '', 'mobile_number' => '', 'address' => '', 'father_name' => '', 'father_mobile_number' => '', 'date_of_birth' => '', 'department' => '', 'semester' => ''];
 if(isset($_POST['submit'])) {

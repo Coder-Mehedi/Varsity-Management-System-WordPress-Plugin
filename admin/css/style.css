@@ -25,6 +25,10 @@ Website: http://Alvarez.is/
     min-height: calc(100vh - 90px);
 }
 
+.modal {
+    bottom: auto;
+}
+
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
@@ -402,6 +406,7 @@ ul.sidebar-menu li a.active i {
 .header {
     position: fixed;
     left: 0;
+    top: 0;
     right: 0;
     z-index: 1002;
 }

@@ -7,18 +7,21 @@ class Students{
 	public function get_every_students() {
 			global $wpdb;
 			$sql = "SELECT
-					s.Name,
-					s.StudentId,
-				    s.DateOfBirth,
-				    s.Sex,
-				    s.MobileNumber,
-				    s.Address,
-				    s.FatherName,
-				    s.FatherMobileNumber,
-				    d.Name AS DepartmentName
-				FROM `wp_student` s
-				JOIN wp_department d
-					ON DepartmentId = d.ID";
+					st.Name,
+					st.StudentId,
+				    st.DateOfBirth,
+				    st.Sex,
+				    st.MobileNumber,
+				    st.Address,
+				    st.FatherName,
+				    st.FatherMobileNumber,
+				    dep.Name AS DepartmentName,
+                    sem.Name AS SemesterName
+				FROM `wp_student` st
+				JOIN wp_department dep
+					ON DepartmentId = dep.ID
+				JOIN wp_semester sem
+                	ON SemesterId = sem.ID";
 			$table = $wpdb->prefix.'student';
 			// $every_student = $wpdb->get_results("SELECT * FROM $table");
 			$every_student = $wpdb->get_results($sql);
@@ -58,7 +61,7 @@ class Students{
 
 		global $wpdb;
 		$table = $wpdb->prefix.'student';
-		$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number, 'Department' => $department, 'Semester' => $semester );
+		$data = array('Name' => $student_name, 'StudentId' => $student_id, 'Sex' => $student_gender, 'DateOfBirth' => $student_dob, 'MobileNumber' => $mobile_number, 'Address' => $address, 'FatherName' => $father_name, 'FatherMobileNumber' => $father_mobile_number, 'DepartmentId' => $department, 'SemesterId' => $semester );
 		$where = array('StudentId' => $student_id);
 		$wpdb->update($table,$data,$where);
 		// $my_id = $wpdb->insert_id;
