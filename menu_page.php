@@ -40,11 +40,13 @@ function add_department() {
 add_submenu_page( 'varsity-management', 'All Semester', 'All Semester', 'manage_options', 'all_semester', 'semester_menu_callback' );
 
 function semester_menu_callback() {
-	require_once 'all_semester.php';
+	// require_once 'all_semester.php';
+	require_once 'admin/all_semester_alternate.php';
 }
 
 add_submenu_page( 'varsity-management', 'Add Semester', 'Add Semester', 'manage_options', 'add_semester', 'add_semester_callback' );
 
 function add_semester_callback() {
-	require_once 'add_semester.php';
+	// require_once 'add_semester.php';
+	require_once 'admin/add_semester_alternate.php';
 }

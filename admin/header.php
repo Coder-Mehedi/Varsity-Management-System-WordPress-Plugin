@@ -52,6 +52,7 @@
 <?php 
 if($_GET['page'] == 'all_students' || $_GET['page'] == 'add_student')$student_active = true;
 if($_GET['page'] == 'all_department' || $_GET['page'] == 'add_department')$department_active = true;
+if($_GET['page'] == 'all_semester' || $_GET['page'] == 'add_semester')$semester_active = true;
 ?>
   
 
@@ -86,6 +87,16 @@ if($_GET['page'] == 'all_department' || $_GET['page'] == 'add_department')$depar
             <ul class="sub">
               <li class="<?php echo $_GET['page'] == 'all_department' ? 'active' : ''; ?>"><a href="<?php echo admin_url( 'admin.php?page=all_department' ) ?>">All Departments</a></li>
               <li class="<?php echo $_GET['page'] == 'add_department' ? 'active' : ''; ?>"><a href="<?php echo admin_url( 'admin.php?page=add_department' ) ?>">Add Department</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a class="<?php echo $semester_active ? 'active' : ''; ?>" href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Semester</span>
+              </a>
+            <ul class="sub">
+              <li class="<?php echo $_GET['page'] == 'all_semester' ? 'active' : ''; ?>"><a href="<?php echo admin_url( 'admin.php?page=all_semester' ) ?>">All Semester</a></li>
+              <li class="<?php echo $_GET['page'] == 'add_semester' ? 'active' : ''; ?>"><a href="<?php echo admin_url( 'admin.php?page=add_semester' ) ?>">Add Semester</a></li>
             </ul>
           </li>
           
