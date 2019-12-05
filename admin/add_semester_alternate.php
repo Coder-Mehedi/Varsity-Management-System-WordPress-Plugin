@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
 
-<?php echo $name = ''; 
+<?php
 require_once 'semester_methods.php';
 $semester = new Semester();
 $url_param_id = $_GET['id'] ?? '';

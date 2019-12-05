@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
 
-<?php echo $name = ''; 
+<?php
 require_once 'department_methods.php';
 $department = new Department();
 $url_param_id = $_GET['id'] ?? '';

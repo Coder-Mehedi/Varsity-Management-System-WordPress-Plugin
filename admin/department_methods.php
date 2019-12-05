@@ -47,7 +47,7 @@ class Department{
 		$exist = $this->get_department_by_name($old_department_name);
 
 		if(!$exist) return;
-		print_r($exist);
+		// print_r($exist);
 		global $wpdb;
 		$table = $wpdb->prefix.'department';
 		$data = array('Name' => $new_department_name);

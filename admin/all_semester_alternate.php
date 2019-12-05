@@ -28,8 +28,8 @@ if($semester_id && $_GET['action'] == 'delete') {
         <td><?php echo $semester->Name; ?></td>
         
         <td>
-          <a href="<?php echo admin_url( 'admin.php?page=add_semester&id=' . $semester->Name . '&action=edit' ); ?>">Edit</a>
-          <a href="<?php echo admin_url( 'admin.php?page=all_semester&id=' . $semester->Name . '&action=delete' ); ?>">Delete</a>
+          <a href="<?php echo admin_url( 'admin.php?page=add_semester&id=' . $semester->Name . '&action=edit' ); ?>"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>  Edit</button></a>
+          <a href="<?php echo admin_url( 'admin.php?page=all_semester&id=' . $semester->Name . '&action=delete' ); ?>"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>  Delete</button></a>
         </td>
       </tr>
   	<?php endforeach; ?>
