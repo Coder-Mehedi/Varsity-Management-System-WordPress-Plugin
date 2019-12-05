@@ -26,13 +26,15 @@ function add_student_form_callback() {
 add_submenu_page( 'varsity-management', 'All Departments', 'All Departments', 'manage_options', 'all_department', 'all_department' );
 
 function all_department() {
-	require_once 'all_department.php';
+	// require_once 'all_department.php';
+	require_once 'admin/all_department_alternate.php';
 }
 
 add_submenu_page( 'varsity-management', 'Add Departments', 'Add Departments', 'manage_options', 'add_department', 'add_department' );
 
 function add_department() {
-	require_once 'add_department.php';
+	// require_once 'add_department.php';
+	require_once 'admin/add_department_alternate.php';
 }
 
 add_submenu_page( 'varsity-management', 'All Semester', 'All Semester', 'manage_options', 'all_semester', 'semester_menu_callback' );

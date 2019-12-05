@@ -29,6 +29,10 @@ Website: http://Alvarez.is/
     bottom: auto;
 }
 
+label {
+    font-size: 17px;
+}
+
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 

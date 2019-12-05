@@ -37,98 +37,7 @@
       <!--logo start-->
       <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
-      <div class="nav notify-row" id="top_menu">
-        <!--  notification start -->
-        <ul class="nav top-menu">
-          <!-- settings start -->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
-              </a>
-            <ul class="dropdown-menu extended tasks-bar">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 4 pending tasks</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Dashio  Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              
-              <li class="external">
-                <a href="#">See All Tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- settings end -->
-          <!-- inbox dropdown start-->
-          <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
-              </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="#">
-                  <span class="photo"><img alt="avatar" src="<?php echo plugin_dir_url( __FILE__ ) ?>/img/ui-zac.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              
-              <li>
-                <a href="index.html#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox dropdown end -->
-          <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-bell-o"></i>
-              <span class="badge bg-warning">7</span>
-              </a>
-            <ul class="dropdown-menu extended notification">
-              <div class="notify-arrow notify-arrow-yellow"></div>
-              <li>
-                <p class="yellow">You have 7 new notifications</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
-                  <span class="small italic">4 mins.</span>
-                  </a>
-              </li>
-              
-              <li>
-                <a href="index.html#">See all notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- notification dropdown end -->
-        </ul>
-        <!--  notification end -->
-      </div>
+      <!-- <div class="nav notify-row" id="top_menu"></div> -->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
           <li><a class="logout" href="<?php bloginfo( 'url' ) ?>/wp-admin">Back to WordPress Dashboard</a></li>
@@ -137,10 +46,15 @@
       </div>
     </header>
     <!--header end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
+    <!-- ****************** MAIN SIDEBAR MENU ******************-->
     <!--sidebar start-->
+  
+<?php 
+if($_GET['page'] == 'all_students' || $_GET['page'] == 'add_student')$student_active = true;
+if($_GET['page'] == 'all_department' || $_GET['page'] == 'add_department')$department_active = true;
+?>
+  
+
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
@@ -148,30 +62,30 @@
           <p class="centered"><a href="profile.html"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a class="active" href="#">
+            <a class="" href="#">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="javascript:;">
+            <a class="<?php echo $student_active ? 'active': '' ?>" href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Students</span>
               </a>
             <ul class="sub">
-              <li class=""><a href="<?php echo admin_url( 'admin.php?page=all_students' ) ?>">All Students</a></li>
-              <li class=""><a href="<?php echo admin_url( 'admin.php?page=add_student' ) ?>">Add Student</a></li>
+              <li class="<?php echo $_GET['page'] == 'all_students' ? 'active': '' ?>"><a href="<?php echo admin_url( 'admin.php?page=all_students' ) ?>">All Students</a></li>
+              <li class="<?php echo $_GET['page'] == 'add_student' ? 'active': '' ?>"><a href="<?php echo admin_url( 'admin.php?page=add_student' ) ?>">Add Student</a></li>
             </ul>
           </li>
 
-          <li class="sub-menu active">
-            <a class="" href="javascript:;">
+          <li class="sub-menu">
+            <a class="<?php echo $department_active ? 'active' : ''; ?>" href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Department</span>
               </a>
             <ul class="sub">
-              <li class=""><a href="<?php echo admin_url( 'admin.php?page=all_department' ) ?>">All Departments</a></li>
-              <li class=""><a href="<?php echo admin_url( 'admin.php?page=add_department' ) ?>">Add Department</a></li>
+              <li class="<?php echo $_GET['page'] == 'all_department' ? 'active' : ''; ?>"><a href="<?php echo admin_url( 'admin.php?page=all_department' ) ?>">All Departments</a></li>
+              <li class="<?php echo $_GET['page'] == 'add_department' ? 'active' : ''; ?>"><a href="<?php echo admin_url( 'admin.php?page=add_department' ) ?>">Add Department</a></li>
             </ul>
           </li>
           
@@ -179,3 +93,13 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
+
+    <!--sidebar end-->
+    <!-- *********** MAIN CONTENT ****************-->
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">

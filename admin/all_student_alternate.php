@@ -9,15 +9,7 @@ if($student_id && $_GET['action'] == 'delete') {
 }
 $all_students = $main->get_every_students();
 ?>
-    <!--sidebar end-->
-    <!-- *********** MAIN CONTENT ****************-->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-
-      	<div class="row mt">
-          <div class="col-md-12">
-            <div class="content-panel">
+    
               <table class="table table-striped table-advance table-hover">
                 <h4 class="center">All Students</h4>
 
@@ -69,14 +61,6 @@ $all_students = $main->get_every_students();
                   
                 </tbody>
               </table>
-            </div>
-            <!-- /content-panel -->
-          </div>
-          <!-- /col-md-12 -->
-        </div>
-      
-      </section>
-    </section>
-    <!--main content end-->
+            
 
 <?php require_once 'footer.php'; ?>

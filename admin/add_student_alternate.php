@@ -1,12 +1,4 @@
-<?php require_once 'header.php'; ?>
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-
-      	<div class="row mt">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <?php
+<?php require_once 'header.php';
 require_once 'student_methods.php';
 require_once 'department_methods.php';
 require_once 'semester_methods.php';
@@ -157,13 +149,5 @@ if(isset($_POST['submit'])) {
     </form>
   </div>
 </div>
-            </div>
-            <!-- /content-panel -->
-          </div>
-          <!-- /col-md-12 -->
-        </div>
-      
-      </section>
-    </section>
-    <!--main content end-->
+            
 <?php require_once 'footer.php'; ?>

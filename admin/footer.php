@@ -1,3 +1,14 @@
+</div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
+        </div>
+      
+      </section>
+    </section>
+    <!--main content end-->
+
+
 <!--footer start-->
     <footer class="site-footer">
       <div class="text-center">
