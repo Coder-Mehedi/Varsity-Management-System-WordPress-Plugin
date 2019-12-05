@@ -4,8 +4,8 @@
 add_menu_page( 'Varsity Management', 'Varsity Management', 'manage_options', 'varsity-management', 'vms_menu_callback', 'dashicons-welcome-learn-more', 30);
 
 function vms_menu_callback() {
-	//require_once 'admin/vms.php';
-	echo 'hello';
+	require_once 'admin/home.php';
+	// echo 'hello';
 }
 
 add_submenu_page( 'varsity-management', 'All Students', 'All Student', 'manage_options', 'all_students', 'all_student_sub_callback' );

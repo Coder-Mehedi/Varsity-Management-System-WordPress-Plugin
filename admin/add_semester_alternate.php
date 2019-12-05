@@ -10,7 +10,7 @@ if($url_param_id){
 // $semester_id = $edit_semester[0]->ID ?? $semester->get_last_id();
 $old_semester_name = $edit_semester[0]->Name ?? '';
 $semester_name = $edit_semester[0]->Name ?? '';
-print_r($old_semester_name);
+
 $error = ['name' => '', 'exists' => ''];
 
 if(isset($_POST['submit'])) {

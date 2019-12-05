@@ -53,6 +53,7 @@
 if($_GET['page'] == 'all_students' || $_GET['page'] == 'add_student')$student_active = true;
 if($_GET['page'] == 'all_department' || $_GET['page'] == 'add_department')$department_active = true;
 if($_GET['page'] == 'all_semester' || $_GET['page'] == 'add_semester')$semester_active = true;
+if($_GET['page'] == 'varsity-management') $dashboard_active = true;
 ?>
   
 
@@ -60,10 +61,10 @@ if($_GET['page'] == 'all_semester' || $_GET['page'] == 'add_semester')$semester_
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="<?php echo admin_url( 'admin.php?page=varsity-management' ); ?>"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sc-logo.png" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a class="" href="#">
+            <a class="<?php echo $dashboard_active ? 'active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=varsity-management' ) ?>">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
