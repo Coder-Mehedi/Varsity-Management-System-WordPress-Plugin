@@ -2,11 +2,40 @@
 
 class Students{
 	function __construct() {
-
+		
 	}
 	public function get_every_students() {
 			global $wpdb;
+			$table = $wpdb->prefix.'student';
 			$sql = "SELECT
+					st.Name,
+					st.StudentId,
+				    st.DateOfBirth,
+				    st.Sex,
+				    st.MobileNumber,
+				    st.Address,
+				    st.FatherName,
+				    st.FatherMobileNumber,
+				    dep.Name AS DepartmentName,
+                    sem.Name AS SemesterName
+				FROM $table st
+				JOIN wp_department dep
+					ON DepartmentId = dep.ID
+				JOIN wp_semester sem
+                	ON SemesterId = sem.ID";
+			
+			// $every_student = $wpdb->get_results("SELECT * FROM $table");
+			$every_student = $wpdb->get_results($sql);
+
+			return $every_student;
+
+			// print_r($every_student); // display data
+		}
+
+	public function get_student_by_id($student_id) {
+		global $wpdb;
+		$table = $wpdb->prefix.'student';
+		$student = $wpdb->get_results("SELECT
 					st.Name,
 					st.StudentId,
 				    st.DateOfBirth,
@@ -21,20 +50,32 @@ class Students{
 				JOIN wp_department dep
 					ON DepartmentId = dep.ID
 				JOIN wp_semester sem
-                	ON SemesterId = sem.ID";
-			$table = $wpdb->prefix.'student';
-			// $every_student = $wpdb->get_results("SELECT * FROM $table");
-			$every_student = $wpdb->get_results($sql);
+                	ON SemesterId = sem.ID
+                WHERE st.StudentId = $student_id");
 
-			return $every_student;
+		return $student;
+	}
 
-			// print_r($every_student); // display data
-		}
-
-	public function get_student_by_id($student_id) {
+	public function get_student_by_name($student_name) {
 		global $wpdb;
 		$table = $wpdb->prefix.'student';
-		$student = $wpdb->get_results("SELECT * FROM $table WHERE StudentId = $student_id");
+		$student = $wpdb->get_results("SELECT
+					st.Name,
+					st.StudentId,
+				    st.DateOfBirth,
+				    st.Sex,
+				    st.MobileNumber,
+				    st.Address,
+				    st.FatherName,
+				    st.FatherMobileNumber,
+				    dep.Name AS DepartmentName,
+                    sem.Name AS SemesterName
+				FROM `wp_student` st
+				JOIN wp_department dep
+					ON DepartmentId = dep.ID
+				JOIN wp_semester sem
+                	ON SemesterId = sem.ID
+                WHERE st.Name LIKE '$student_name%'");
 
 		return $student;
 	}
