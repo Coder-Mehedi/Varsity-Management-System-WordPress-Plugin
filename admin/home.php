@@ -6,6 +6,7 @@
 <?php 
 require_once 'student_methods.php';
 $stm = new Students();
+$search_term = $user_input = null;
 $error = ['term' => '', 'user_input' => ''];
 if(isset($_POST['submit'])) {
 	$search_term = $_POST['search_term'] ?? '';
@@ -31,16 +32,16 @@ if(isset($_POST['submit'])) {
 	<form method="POST">
 		<div class="col m3">
 			<label for="search_term">Select Search Term</label>
-			<select name="search_term" id="search_term">
+			<select name="search_term" id="search_term" >
 		        <option value="" disabled selected>Select</option>
-		        <option value="name">Name</option>
-		        <option value="student_id">Student Id</option>
+		        <option value="name" <?php echo $search_term == 'name' ? 'selected' : ''; ?>>Name</option>
+		        <option value="student_id" <?php echo $search_term == 'student_id' ? 'selected' : ''; ?>>Student Id</option>
       		</select>
       		<div class="red-text"><?php echo $error['term'] ?></div>
 		</div>
 		<div class="col m9">
 			<label for="name" class="col m12 left">Search</label>
-			<input type="text" id="name" name="search_input" class="col m9">
+			<input type="text" id="name" name="search_input" class="col m9" value="<?php echo $user_input; ?>">
 			<button type="submit" name="submit" class="btn right col m3">Submit</button>
 			<div class="red-text"><?php echo $error['user_input'] ?></div>
 		</div>
